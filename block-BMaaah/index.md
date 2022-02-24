@@ -171,3 +171,93 @@ Insert above data into database to perform below queries:-
 - Update user with extra golf field in sports array whose name is "Steve Ortega".
 - Find all users who play either 'football' or 'cricket'.
 - Find all users whose name includes 'ri' in their name.
+
+code
+
+use db
+switched to db blog
+db.articles.insert({title:"abc",details:"abc",author:{name: "12", email:"12@gmail.com",age:34 },tags:["js","mongo"] })
+WriteResult({ "nInserted" : 1 })
+db.articles.insert({title:"abc",details:"abc",author:{name: "13", email:"13@gmail.com",age:24 },tags:["js","node"] } )
+WriteResult({ "nInserted" : 1 })
+
+> db.articles.insert({title:"adc",details:"adc",author:{name: "14", email:"14@gmail.com",age:29 },tags:["html","node"] } )
+> WriteResult({ "nInserted" : 1 })
+> db.articles.find().pretty()
+> { "\_id" : ObjectId("6217308fbd5345c0f7047257") }
+> { "\_id" : ObjectId("621730d26d2be0e201556583"), "title" : "abc" }
+> {
+
+        "_id" : ObjectId("6217332a85338d86fcd97f04"),
+        "title" : "abc",
+        "details" : "abc",
+        "author" : {
+                "name" : "12",
+                "email" : "12@gmail.com",
+                "age" : 34
+        },
+        "tags" : [
+                "js",
+                "mongo"
+        ]
+
+}
+{
+"\_id" : ObjectId("621733a685338d86fcd97f05"),
+"title" : "abc",
+"details" : "abc",
+"author" : {
+"name" : "13",
+"email" : "13@gmail.com",
+"age" : 24
+},
+"tags" : [
+"js",
+"node"
+]
+}
+{
+"\_id" : ObjectId("621733d685338d86fcd97f06"),
+"title" : "adc",
+"details" : "adc",
+"author" : {
+"name" : "14",
+"email" : "14@gmail.com",
+"age" : 29
+},
+"tags" : [
+"html",
+"node"
+]
+}
+
+>>  db.articles.find({tags :"js"}).pretty()
+{
+        "_id" : ObjectId("6217332a85338d86fcd97f04"),
+        "title" : "abc",
+        "details" : "abc",
+        "author" : {
+                "name" : "12",
+                "email" : "12@gmail.com",
+                "age" : 34
+        },
+        "tags" : [
+                "js",
+                "mongo"
+        ]
+}
+{
+        "_id" : ObjectId("621733a685338d86fcd97f05"),
+        "title" : "abc",
+        "details" : "abc",
+        "author" : {
+                "name" : "13",
+                "email" : "13@gmail.com",
+                "age" : 24
+        },
+        "tags" : [
+                "js",
+                "node"
+        ]
+}
+>
